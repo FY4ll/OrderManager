@@ -1,8 +1,0 @@
-# ninja log v7
-1	29	1786891691165228724	OrderManager_autogen/timestamp	d38f7b667b2aa0cc
-1	29	1786891691165228724	OrderManager_autogen/mocs_compilation.cpp	d38f7b667b2aa0cc
-1	29	1786891691165228724	/home/fall/Documents/GitHub/OrderManager/build/OrderManager_autogen/timestamp	d38f7b667b2aa0cc
-1	29	1786891691165228724	/home/fall/Documents/GitHub/OrderManager/build/OrderManager_autogen/mocs_compilation.cpp	d38f7b667b2aa0cc
-30	37	1786891691174380704	CMakeFiles/OrderManager.dir/OrderManager_autogen/mocs_compilation.cpp.o	86004395ea29e55d
-30	1200	1786891691174551083	CMakeFiles/OrderManager.dir/src/main.cpp.o	9b6079fc79327929
-1201	1417	1786891692345829525	OrderManager	d1d489580b6ccdbb
