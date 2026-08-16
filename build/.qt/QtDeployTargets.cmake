@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_OrderManager_FILE /home/fall/Documents/GitHub/OrderManager/build/OrderManager)
+set(__QT_DEPLOY_TARGET_OrderManager_TYPE EXECUTABLE)

@@ -1,0 +1,5 @@
+/home/fall/Documents/GitHub/OrderManager/build/CMakeFiles/OrderManager.dir
+/home/fall/Documents/GitHub/OrderManager/build/CMakeFiles/edit_cache.dir
+/home/fall/Documents/GitHub/OrderManager/build/CMakeFiles/rebuild_cache.dir
+/home/fall/Documents/GitHub/OrderManager/build/CMakeFiles/OrderManager_autogen_timestamp_deps.dir
+/home/fall/Documents/GitHub/OrderManager/build/CMakeFiles/OrderManager_autogen.dir
