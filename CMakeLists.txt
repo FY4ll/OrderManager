@@ -14,5 +14,7 @@ qt_add_executable(OrderManager
     src/MainWindow.cpp
     include/MainWindow.h
 )
-
+target_include_directories(OrderManager PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+)
 target_link_libraries(OrderManager PRIVATE Qt6::Widgets)
