@@ -11,6 +11,8 @@ qt_standard_project_setup()
 
 qt_add_executable(OrderManager
     src/main.cpp
+    src/MainWindow.cpp
+    include/MainWindow.h
 )
 
 target_link_libraries(OrderManager PRIVATE Qt6::Widgets)
