@@ -4,5 +4,5 @@
 class MainWindow : public QMainWindow //define a new class called MainWindow that inherits from QMainWindow
 {
     public: 
-        MainWindow();
+     MainWindow();
 };
