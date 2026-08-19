@@ -4,9 +4,7 @@
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    QMainWindow window;
-    QWidget *centralWidget = new QWidget();
-    window.setCentralWidget(centralWidget);
+    MainWindow window;
     window.show();
 
     return app.exec();
