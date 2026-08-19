@@ -13,6 +13,7 @@ qt_add_executable(OrderManager
     src/main.cpp
     src/ui/MainWindow.cpp
     src/models/Product.cpp
+    src/models/ProductsManager.cpp
 )
 target_include_directories(OrderManager PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/include
