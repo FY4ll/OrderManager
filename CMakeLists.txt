@@ -11,8 +11,8 @@ qt_standard_project_setup()
 
 qt_add_executable(OrderManager
     src/main.cpp
-    src/MainWindow.cpp
-    include/MainWindow.h
+    src/ui/MainWindow.cpp
+    src/models/Product.cpp
 )
 target_include_directories(OrderManager PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/include

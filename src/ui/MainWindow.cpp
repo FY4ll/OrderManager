@@ -1,4 +1,4 @@
-#include "MainWindow.h"
+#include "ui/MainWindow.h"
 
 MainWindow::MainWindow() //Mainwindows.h method that sets the title and size of the window
 {
