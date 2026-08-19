@@ -6,3 +6,17 @@ Product::Product(int id, const std::string& name, double price)
     this->name = name;
     this->price = price;
 }
+
+int Product::getId()const
+{
+    return this->id; 
+}
+
+std::string Product::getName() const
+{
+    return this->name;
+}
+
+double Product::getPrice() const{
+    return this->price;
+}
