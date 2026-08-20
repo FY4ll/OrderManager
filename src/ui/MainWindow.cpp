@@ -5,7 +5,7 @@
 #include <QListWidget>
 #include <QPushButton>
 
-MainWindow::MainWindow() //Mainwindows.h method that sets the title and size of the window
+MainWindow::MainWindow(ProductManager& productManager)//Mainwindows.h method that sets the title and size of the window
 {
     //Set the main windows information: title and size 
     setWindowTitle("Order Manager"); //set the title of the window to "Order Manager"
@@ -23,5 +23,5 @@ MainWindow::MainWindow() //Mainwindows.h method that sets the title and size of 
     //creating a list widget to display products
     QListWidget *productList = new QListWidget();
     layout->addWidget(productList);
-    
+
 }

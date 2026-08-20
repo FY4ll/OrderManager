@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     ProductManager manager;
     manager.addProduct(cocaCola);
     QApplication app(argc, argv);
-    MainWindow window;
+    MainWindow window(manager);
     window.show();
 
 
