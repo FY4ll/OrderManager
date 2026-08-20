@@ -6,4 +6,5 @@ class MainWindow : public QMainWindow
 {
 public:
     MainWindow(ProductManager& productManager);
+    void onNewProductClicked();
 };

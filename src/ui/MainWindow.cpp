@@ -4,6 +4,7 @@
 #include <QLabel>
 #include <QListWidget>
 #include <QPushButton>
+#include <iostream>
 
 MainWindow::MainWindow(ProductManager& productManager)//Mainwindows.h method that sets the title and size of the window
 {
@@ -32,5 +33,15 @@ MainWindow::MainWindow(ProductManager& productManager)//Mainwindows.h method tha
             QString::fromStdString(products[i].getName()) + " | " +
             QString::number(products[i].getPrice()));
     }
+    // Button to let the user put his own product
+    QPushButton *newProductButton = new QPushButton("New Product");
+    layout->addWidget(newProductButton);
+    //CONNECT THE BUTTON TO THE METHODS ONNEWPRODUCT CLICK
+    connect(newProductButton, &QPushButton::clicked, this, &MainWindow::onNewProductClicked);
 
+}
+
+void MainWindow::onNewProductClicked()
+{
+    std::cout << "New Product clicked!" << std::endl;
 }
