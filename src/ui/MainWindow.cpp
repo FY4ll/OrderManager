@@ -1,7 +1,24 @@
 #include "ui/MainWindow.h"
+#include <QWidget>
+#include <QVBoxLayout>
+#include <QLabel>
+#include <QListWidget>
+#include <QPushButton>
 
 MainWindow::MainWindow() //Mainwindows.h method that sets the title and size of the window
 {
+    //Set the main windows information: title and size 
     setWindowTitle("Order Manager"); //set the title of the window to "Order Manager"
     resize(800, 600); //set the size of the window to 800x600 pixels
+    
+    // Set the main window layout information
+    QWidget *central = new QWidget(this); //Set a widget zone to page
+    setCentralWidget(central);//Making it the main content
+    QVBoxLayout *layout = new QVBoxLayout(central);//Adding a QVBox layout to central 
+
+    //creating a first label
+    QLabel *title = new QLabel("Products");
+    //make title visible on the page
+    layout->addWidget(title);
+    
 }
