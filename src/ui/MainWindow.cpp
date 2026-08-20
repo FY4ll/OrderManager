@@ -4,7 +4,7 @@
 #include <QLabel>
 #include <QListWidget>
 #include <QPushButton>
-#include <iostream>
+#include "ui/ProductDialog.h"
 
 MainWindow::MainWindow(ProductManager& productManager)//Mainwindows.h method that sets the title and size of the window
 {
@@ -43,5 +43,6 @@ MainWindow::MainWindow(ProductManager& productManager)//Mainwindows.h method tha
 
 void MainWindow::onNewProductClicked()
 {
-    std::cout << "New Product clicked!" << std::endl;
+    ProductDialog dialog;
+    dialog.exec();
 }
