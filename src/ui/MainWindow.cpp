@@ -20,5 +20,8 @@ MainWindow::MainWindow() //Mainwindows.h method that sets the title and size of 
     QLabel *title = new QLabel("Products");
     //make title visible on the page
     layout->addWidget(title);
+    //creating a list widget to display products
+    QListWidget *productList = new QListWidget();
+    layout->addWidget(productList);
     
 }
