@@ -5,7 +5,7 @@
 #include <QDoubleSpinBox>
 #include <QPushButton>
 
-ProductDialog::ProductDialog(ProductManager& ProductManager) : productManager(productManager)
+ProductDialog::ProductDialog(ProductManager& productManager) : productManager(productManager)
 {
     //window size
     setWindowTitle("Add New Product");
@@ -31,4 +31,8 @@ void ProductDialog::onAddProductClicked()
 {
     QString name = nameInput->text();
     double price = priceInput->value();
+    //convert Qstring to normal string
+    std::string productName = name.toStdString();
+    productManager.createProduct(productName,price);
+    accept();
 }
