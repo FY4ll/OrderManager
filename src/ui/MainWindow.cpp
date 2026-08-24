@@ -23,7 +23,7 @@ MainWindow::MainWindow(ProductManager& productManager) : productManager(productM
     //make title visible on the page
     layout->addWidget(title);
     //creating a list widget to display products
-    QListWidget *productList = new QListWidget();
+    productList = new QListWidget;
     layout->addWidget(productList);
     //Giving accèss to product informations
     const std::vector<Product>& products = productManager.getProducts();
