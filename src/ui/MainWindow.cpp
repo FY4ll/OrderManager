@@ -49,10 +49,13 @@ void MainWindow::refreshProductList(){
     const std::vector<Product>& products = productManager.getProducts();
        //loop to get every products in the vector
     for(std::size_t i = 0; i < products.size(); i++){
-        productList->addItem(
+        QListWidgetItem *itemRowQTId = new QListWidgetItem();
+        itemRowQTId->setData(Qt::UserRole, products[i].getId());
+        itemRowQTId->setText(
             QString::number(products[i].getId()) + " | " +
             QString::fromStdString(products[i].getName()) + " | " +
             QString::number(products[i].getPrice()));
+        productList->addItem(itemRowQTId);
     }
 };
 void MainWindow::onDeleteProductClicked(){
