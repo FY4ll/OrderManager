@@ -15,13 +15,13 @@ ProductDialog::ProductDialog()
     QLabel *title = new QLabel("Add a new product to the list");
     layout->addWidget(title);
     // Name input for new product
-    QLineEdit *nameInput = new QLineEdit();
+    nameInput = new QLineEdit();
     layout->addWidget(nameInput);
 
     //Price input only for double value no string
-    QDoubleSpinBox *priceInput = new QDoubleSpinBox;
+    priceInput = new QDoubleSpinBox(); 
     layout->addWidget(priceInput);
 
-    QPushButton *addButton = new QPushButton("Add Product to the list");
+    addButton = new QPushButton("Add new products");
     layout->addWidget(addButton);    
 }
