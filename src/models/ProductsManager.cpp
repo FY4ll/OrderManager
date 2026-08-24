@@ -16,3 +16,13 @@ void ProductManager::createProduct(const std::string& name, double price)
     addProduct(newProduct);
     nextID += 1;
 }
+void ProductManager::removeProduct(int id)
+{
+    for(int index = 0;index < products.size(); index++){
+        if (products[index].getId() == id)
+        {
+           products.erase(products.begin() + index); 
+           return;
+        }
+    };
+}

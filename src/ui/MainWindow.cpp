@@ -61,8 +61,8 @@ void MainWindow::refreshProductList(){
 void MainWindow::onDeleteProductClicked(){
     QListWidgetItem *selectedItem = productList->currentItem();    
     if (selectedItem != nullptr){
-        
-    }else{
-
+        int productID = selectedItem->data(Qt::UserRole).toInt();
+        productManager.removeProduct(productID);
+        refreshProductList();
     }
 };

@@ -9,6 +9,8 @@ class ProductManager{
         void addProduct(const Product& product);
         // getter
         const std::vector<Product>& getProducts() const;
+
+        void removeProduct(int id);
     private:
         std::vector<Product> products;
         int nextID = 1;
