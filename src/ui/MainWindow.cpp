@@ -31,16 +31,18 @@ MainWindow::MainWindow(ProductManager& productManager) : productManager(productM
     layout->addWidget(newProductButton);
     //CONNECT THE BUTTON TO THE METHODS ONNEWPRODUCT CLICK
     connect(newProductButton, &QPushButton::clicked, this, &MainWindow::onNewProductClicked);
+    //Button to delete the selected elements in the list above
+    QPushButton *deleteButton = new QPushButton("Remove Product");
+    layout->addWidget(deleteButton);
+    connect(deleteButton, &QPushButton::clicked, this, &MainWindow::onDeleteProductClicked);
 
 }
-
 void MainWindow::onNewProductClicked()
 {
     ProductDialog dialog(productManager);
     dialog.exec();
     refreshProductList();
 }
-
 void MainWindow::refreshProductList(){
     productList->clear();
    //Giving accèss to product informations
@@ -51,5 +53,13 @@ void MainWindow::refreshProductList(){
             QString::number(products[i].getId()) + " | " +
             QString::fromStdString(products[i].getName()) + " | " +
             QString::number(products[i].getPrice()));
+    }
+};
+void MainWindow::onDeleteProductClicked(){
+    QListWidgetItem *selectedItem = productList->currentItem();    
+    if (selectedItem != nullptr){
+        
+    }else{
+
     }
 };
