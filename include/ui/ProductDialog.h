@@ -12,4 +12,6 @@ private:
     QLineEdit *nameInput;
     QDoubleSpinBox *priceInput;
     QPushButton *addButton;
+    void onAddProductClicked();
 };
+

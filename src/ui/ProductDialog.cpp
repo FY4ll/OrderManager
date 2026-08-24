@@ -23,5 +23,12 @@ ProductDialog::ProductDialog()
     layout->addWidget(priceInput);
 
     addButton = new QPushButton("Add new products");
-    layout->addWidget(addButton);    
+    layout->addWidget(addButton);
+    connect(addButton, &QPushButton::clicked, this, &ProductDialog::onAddProductClicked);
+}
+
+void ProductDialog::onAddProductClicked()
+{
+    QString name = nameInput->text();
+    double price = priceInput->value();
 }
