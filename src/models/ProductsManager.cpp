@@ -9,3 +9,10 @@ const std::vector<Product>& ProductManager::getProducts() const
 {
     return this->products;
 }
+void ProductManager::createProduct(const std::string& name, double price)
+{
+    //Create every info we need to use addProduct methods
+    Product newProduct(nextID, name, price);
+    addProduct(newProduct);
+    nextID += 1;
+}

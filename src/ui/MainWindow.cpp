@@ -6,7 +6,8 @@
 #include <QPushButton>
 #include "ui/ProductDialog.h"
 
-MainWindow::MainWindow(ProductManager& productManager)//Mainwindows.h method that sets the title and size of the window
+//Mainwindows.h method that sets the title and size of the window
+MainWindow::MainWindow(ProductManager& productManager) : productManager(productManager)
 {
     //Set the main windows information: title and size 
     setWindowTitle("Order Manager"); //set the title of the window to "Order Manager"

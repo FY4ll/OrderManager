@@ -4,7 +4,9 @@
 
 class MainWindow : public QMainWindow
 {
-public:
-    MainWindow(ProductManager& productManager);
-    void onNewProductClicked();
+    public:
+        MainWindow(ProductManager& productManager);
+        void onNewProductClicked();
+    private:
+        ProductManager& productManager;
 };

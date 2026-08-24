@@ -5,7 +5,7 @@
 #include <QDoubleSpinBox>
 #include <QPushButton>
 
-ProductDialog::ProductDialog()
+ProductDialog::ProductDialog(ProductManager& ProductManager) : productManager(productManager)
 {
     //window size
     setWindowTitle("Add New Product");
