@@ -44,6 +44,6 @@ MainWindow::MainWindow(ProductManager& productManager) : productManager(productM
 
 void MainWindow::onNewProductClicked()
 {
-    ProductDialog dialog;
+    ProductDialog dialog(productManager);
     dialog.exec();
 }
