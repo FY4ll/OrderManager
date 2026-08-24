@@ -25,15 +25,7 @@ MainWindow::MainWindow(ProductManager& productManager) : productManager(productM
     //creating a list widget to display products
     productList = new QListWidget;
     layout->addWidget(productList);
-    //Giving accèss to product informations
-    const std::vector<Product>& products = productManager.getProducts();
-    //loop to get every products in the vector
-    for(std::size_t i = 0; i < products.size(); i++){
-        productList->addItem(
-            QString::number(products[i].getId()) + " | " +
-            QString::fromStdString(products[i].getName()) + " | " +
-            QString::number(products[i].getPrice()));
-    }
+    refreshProductList();
     // Button to let the user put his own product
     QPushButton *newProductButton = new QPushButton("New Product");
     layout->addWidget(newProductButton);
@@ -46,4 +38,18 @@ void MainWindow::onNewProductClicked()
 {
     ProductDialog dialog(productManager);
     dialog.exec();
+    refreshProductList();
 }
+
+void MainWindow::refreshProductList(){
+    productList->clear();
+   //Giving accèss to product informations
+    const std::vector<Product>& products = productManager.getProducts();
+       //loop to get every products in the vector
+    for(std::size_t i = 0; i < products.size(); i++){
+        productList->addItem(
+            QString::number(products[i].getId()) + " | " +
+            QString::fromStdString(products[i].getName()) + " | " +
+            QString::number(products[i].getPrice()));
+    }
+};
