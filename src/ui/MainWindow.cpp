@@ -35,6 +35,10 @@ MainWindow::MainWindow(ProductManager& productManager) : productManager(productM
     QPushButton *deleteButton = new QPushButton("Remove Product");
     layout->addWidget(deleteButton);
     connect(deleteButton, &QPushButton::clicked, this, &MainWindow::onDeleteProductClicked);
+    //Button to update product information like price and other stuffs
+    QPushButton *updateButton = new QPushButton("Update Product");
+    layout->addWidget(updateButton);
+    connect(updateButton, &QPushButton::clicked, this, &MainWindow::onUpdateProductClicked);
 
 }
 void MainWindow::onNewProductClicked()
@@ -64,5 +68,11 @@ void MainWindow::onDeleteProductClicked(){
         int productID = selectedItem->data(Qt::UserRole).toInt();
         productManager.removeProduct(productID);
         refreshProductList();
+    }
+};
+void MainWindow::onUpdateProductClicked(){
+    QListWidgetItem *selectedItem = productList->currentItem();
+    if (selectedItem != nullptr){
+        int productID = selectedItem->data(Qt::UserRole).toInt();
     }
 };

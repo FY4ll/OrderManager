@@ -13,4 +13,5 @@ class MainWindow : public QMainWindow
         void refreshProductList();
         QListWidget *productList;
         void onDeleteProductClicked(); 
+        void onUpdateProductClicked();
 };

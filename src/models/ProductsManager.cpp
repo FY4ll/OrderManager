@@ -26,3 +26,6 @@ void ProductManager::removeProduct(int id)
         }
     };
 }
+Product* getProductById(int id){
+    
+};
