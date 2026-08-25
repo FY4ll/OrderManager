@@ -70,9 +70,18 @@ void MainWindow::onDeleteProductClicked(){
         refreshProductList();
     }
 };
-void MainWindow::onUpdateProductClicked(){
+void MainWindow::onUpdateProductClicked()
+{
     QListWidgetItem *selectedItem = productList->currentItem();
-    if (selectedItem != nullptr){
+    if (selectedItem != nullptr)
+    {
         int productID = selectedItem->data(Qt::UserRole).toInt();
+        Product *product = productManager.getProductById(productID);
+        if (product != nullptr)
+        {
+            ProductDialog dialog(productManager, product);
+            dialog.exec();
+            refreshProductList();
+        }
     }
-};
+}

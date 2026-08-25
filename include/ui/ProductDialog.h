@@ -8,8 +8,9 @@
 class ProductDialog : public QDialog
 {
 public:
-    ProductDialog(ProductManager& productManager);
+    ProductDialog(ProductManager& productManager, Product* product = nullptr);
 private:
+    Product* product;
     void onAddProductClicked();
     ProductManager& productManager;
     QLineEdit *nameInput;

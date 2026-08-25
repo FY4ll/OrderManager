@@ -5,7 +5,7 @@
 #include <QDoubleSpinBox>
 #include <QPushButton>
 
-ProductDialog::ProductDialog(ProductManager& productManager) : productManager(productManager)
+ProductDialog::ProductDialog(ProductManager& productManager, Product* product) : productManager(productManager), product(product)
 {
     //window size
     setWindowTitle("Add New Product");
@@ -21,6 +21,11 @@ ProductDialog::ProductDialog(ProductManager& productManager) : productManager(pr
     //Price input only for double value no string
     priceInput = new QDoubleSpinBox(); 
     layout->addWidget(priceInput);
+    if (product != nullptr)
+    {
+        nameInput->setText(QString::fromStdString(product->getName()));
+        priceInput->setValue(product->getPrice());
+    }
 
     addButton = new QPushButton("Add new products");
     layout->addWidget(addButton);
@@ -29,10 +34,14 @@ ProductDialog::ProductDialog(ProductManager& productManager) : productManager(pr
 
 void ProductDialog::onAddProductClicked()
 {
-    QString name = nameInput->text();
-    double price = priceInput->value();
-    //convert Qstring to normal string
-    std::string productName = name.toStdString();
-    productManager.createProduct(productName,price);
-    accept();
+    if (product != nullptr){
+    }else{
+         QString name = nameInput->text();
+        double price = priceInput->value();
+        //convert Qstring to normal string
+        std::string productName = name.toStdString();
+        productManager.createProduct(productName,price);
+        accept();  
+    }
+    
 }

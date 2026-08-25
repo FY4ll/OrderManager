@@ -26,6 +26,12 @@ void ProductManager::removeProduct(int id)
         }
     };
 }
-Product* getProductById(int id){
-    
-};
+<Product* ProductManager::getProductById(int id){
+    for(int index = 0;index < products.size(); index++){
+        if (products[index].getId() == id)
+        {
+           return &products[index];
+        }
+    }
+    return nullptr;
+}
