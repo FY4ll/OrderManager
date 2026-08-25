@@ -9,7 +9,6 @@ class Product
         double price; //the product's price
     public:
         Product(int id, const std::string& name, double price); //constructor that initializes the product's id, name, and price
-
         //Getter
         int getId() const; //getter for the product's id
         std::string getName() const; //getter for the product's name
@@ -17,4 +16,6 @@ class Product
         
         //Setter
         void setPrice(double price); //Setter for the price
+        void setName(const std::string& name);
+        void setPrice(double price);
 };
