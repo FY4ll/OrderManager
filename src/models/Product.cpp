@@ -25,8 +25,3 @@ void Product::setName(const std::string& name)
 {
     this->name = name;
 }
-
-void Product::setPrice(double price)
-{
-    this->price = price;
-}

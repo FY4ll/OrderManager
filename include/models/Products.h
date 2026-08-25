@@ -17,5 +17,4 @@ class Product
         //Setter
         void setPrice(double price); //Setter for the price
         void setName(const std::string& name);
-        void setPrice(double price);
 };
