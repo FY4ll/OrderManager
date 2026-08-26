@@ -7,39 +7,75 @@
 #include "ui/ProductDialog.h"
 
 //Mainwindows.h method that sets the title and size of the window
+#include "ui/MainWindow.h"
+#include <QWidget>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QListWidget>
+#include <QPushButton>
+#include "ui/ProductDialog.h"
+
+//Mainwindows.h method that sets the title and size of the window
 MainWindow::MainWindow(ProductManager& productManager) : productManager(productManager)
 {
     //Set the main windows information: title and size 
     setWindowTitle("Order Manager"); //set the title of the window to "Order Manager"
     resize(800, 600); //set the size of the window to 800x600 pixels
     
-    // Set the main window layout information
+    //Set the main windows layout information
     QWidget *central = new QWidget(this); //Set a widget zone to page
     setCentralWidget(central);//Making it the main content
-    QVBoxLayout *layout = new QVBoxLayout(central);//Adding a QVBox layout to central 
+    QHBoxLayout *mainLayout = new QHBoxLayout(central);//Adding a QHBox layout to central
+
+    //Creating the sidebar
+    QWidget *sidebar = new QWidget();
+    QVBoxLayout *sidebarLayout = new QVBoxLayout(sidebar);
+
+    QPushButton *productsButton = new QPushButton("Products");
+    QPushButton *ordersButton = new QPushButton("Orders");
+    QPushButton *settingsButton = new QPushButton("Settings");
+
+    sidebarLayout->addWidget(productsButton);
+    sidebarLayout->addWidget(ordersButton);
+    sidebarLayout->addWidget(settingsButton);
+
+    mainLayout->addWidget(sidebar);
+
+    //Creating the main content area
+    QWidget *content = new QWidget();
+    QVBoxLayout *contentLayout = new QVBoxLayout(content);
 
     //creating a first label
     QLabel *title = new QLabel("Products");
-    //make title visible on the page
-    layout->addWidget(title);
+    contentLayout->addWidget(title);
+
     //creating a list widget to display products
     productList = new QListWidget;
-    layout->addWidget(productList);
+    contentLayout->addWidget(productList);
     refreshProductList();
-    // Button to let the user put his own product
+
+    //Creating the product action buttons
+    QHBoxLayout *actionsLayout = new QHBoxLayout();
+
+    //Button to let the user put his own product
     QPushButton *newProductButton = new QPushButton("New Product");
-    layout->addWidget(newProductButton);
+    actionsLayout->addWidget(newProductButton);
+
     //CONNECT THE BUTTON TO THE METHODS ONNEWPRODUCT CLICK
     connect(newProductButton, &QPushButton::clicked, this, &MainWindow::onNewProductClicked);
+
     //Button to delete the selected elements in the list above
     QPushButton *deleteButton = new QPushButton("Remove Product");
-    layout->addWidget(deleteButton);
+    actionsLayout->addWidget(deleteButton);
     connect(deleteButton, &QPushButton::clicked, this, &MainWindow::onDeleteProductClicked);
+
     //Button to update product information like price and other stuffs
     QPushButton *updateButton = new QPushButton("Update Product");
-    layout->addWidget(updateButton);
+    actionsLayout->addWidget(updateButton);
     connect(updateButton, &QPushButton::clicked, this, &MainWindow::onUpdateProductClicked);
-
+    contentLayout->addLayout(actionsLayout);
+    mainLayout->addWidget(content);
 }
 void MainWindow::onNewProductClicked()
 {
