@@ -1,20 +1,23 @@
 #include <QApplication>
 #include <QMainWindow>
-#include "ui/MainWindow.h"
 #include <iostream>
+#include <QFile>
+#include <QTextStream>
 #include "models/Products.h"
 #include "models/ProductsManager.h"
+#include "ui/MainWindow.h"
 
 int main(int argc, char *argv[])
 {   
-    Product cocaCola(2, "Coca-Cola", 1.25);
     ProductManager manager;
-    manager.addProduct(cocaCola);
     QApplication app(argc, argv);
-    MainWindow window(manager);
+    QFile file("assets/styles/main.qss");
+    if (file.open(QFile::ReadOnly | QFile::Text))
+    {
+        QTextStream stream(&file);
+        app.setStyleSheet(stream.readAll());
+    }
+    MainWindow window(manager); 
     window.show();
-
-
-
     return app.exec();
 }
