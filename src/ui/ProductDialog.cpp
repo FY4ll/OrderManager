@@ -33,7 +33,7 @@ ProductDialog::ProductDialog(ProductManager& productManager, Product* product) :
         priceInput->setValue(product->getPrice());
     }
 
-    addButton = new QPushButton("Add new products");
+    addButton = new QPushButton("Add products");
     layout->addWidget(addButton);
     connect(addButton, &QPushButton::clicked, this, &ProductDialog::onAddProductClicked);
 }

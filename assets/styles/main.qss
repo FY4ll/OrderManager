@@ -1,0 +1,28 @@
+QMainWindow, QDialog {
+    background-color: #111827;
+}
+
+QLabel {
+    color: #F9FAFB;
+    font-size: 14px;
+}
+
+QPushButton {
+    background-color: #7C3AED;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+}
+
+QPushButton:hover {
+    background-color: #8B5CF6;
+}
+
+QLineEdit, QDoubleSpinBox, QListWidget {
+    background: #1F2937;
+    color: white;
+    border: 1px solid #374151;
+    border-radius: 8px;
+    padding: 6px;
+}
