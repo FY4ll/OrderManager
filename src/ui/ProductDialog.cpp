@@ -16,12 +16,16 @@ ProductDialog::ProductDialog(ProductManager& productManager, Product* product) :
     layout->addWidget(nameLabel);
     // Name input for new product
     nameInput = new QLineEdit();
+    nameInput->setPlaceholderText("Enter product Name");
     layout->addWidget(nameInput);
 
     //Price input only for double value no string
     QLabel *priceLabel = new QLabel("Price:");
     layout->addWidget(priceLabel);
     priceInput = new QDoubleSpinBox(); 
+    priceInput->setDecimals(2);
+    priceInput->setMinimum(0.00);
+    priceInput->setSuffix(" CHF");
     layout->addWidget(priceInput);
     if (product != nullptr)
     {
