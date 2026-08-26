@@ -12,13 +12,15 @@ ProductDialog::ProductDialog(ProductManager& productManager, Product* product) :
     resize(400, 300);
     //window layout
     QVBoxLayout *layout = new QVBoxLayout(this);
-    QLabel *title = new QLabel("Add a new product to the list");
-    layout->addWidget(title);
+    QLabel *nameLabel = new QLabel("Name:");
+    layout->addWidget(nameLabel);
     // Name input for new product
     nameInput = new QLineEdit();
     layout->addWidget(nameInput);
 
     //Price input only for double value no string
+    QLabel *priceLabel = new QLabel("Price:");
+    layout->addWidget(priceLabel);
     priceInput = new QDoubleSpinBox(); 
     layout->addWidget(priceInput);
     if (product != nullptr)
