@@ -1,5 +1,8 @@
 #include "models/ProductsManager.h"
 
+ProductManager::ProductManager(){
+    products = jsonStorage.load("data/products.json");
+}
 void ProductManager::addProduct(const Product& product)
 {
     //adding an elements to the end of the vector with push_back() methods from <vector> 

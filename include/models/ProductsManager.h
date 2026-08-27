@@ -5,6 +5,7 @@
 
 class ProductManager{
     public:
+        ProductManager();
         void createProduct(const std::string& name, double price);
         //setter
         void addProduct(const Product& product);
