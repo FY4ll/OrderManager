@@ -14,4 +14,7 @@ class MainWindow : public QMainWindow
         QListWidget *productList;
         void onDeleteProductClicked(); 
         void onUpdateProductClicked();
+        void updateProductSelection();
+    protected:
+        bool eventFilter(QObject* object, QEvent* event) override;
 };

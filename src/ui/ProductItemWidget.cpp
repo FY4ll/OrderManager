@@ -2,6 +2,7 @@
 #include "models/Products.h"
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QStyle>
 
 ProductItemWidget::ProductItemWidget(const Product& product, QWidget* parent)
     : QWidget(parent)
@@ -19,4 +20,12 @@ ProductItemWidget::ProductItemWidget(const Product& product, QWidget* parent)
     layout->addWidget(nameLabel);
     layout->addStretch();
     layout->addWidget(priceLabel);
+}
+
+void ProductItemWidget::setSelected(bool selected)
+{
+    setProperty("selected", selected);
+    style()->unpolish(this);
+    style()->polish(this);
+    update();
 }

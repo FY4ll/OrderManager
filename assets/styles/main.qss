@@ -89,10 +89,6 @@ QListWidget::item{
     margin: 4px 0px;
 }
 
-QListWidget::item:selected{
-    background: transparent;
-}
-
 /* ===== Product Item ===== */
 
 #productItem {
@@ -100,8 +96,17 @@ QListWidget::item:selected{
     border-radius: 8px;
 }
 
+#productItem:hover {
+    background-color: #374151;
+}
+
+#productItem[selected="true"] {
+    background-color: #7C3AED;
+    border: 1px solid #A78BFA;
+}
+
 #productId {
-    color: #94A3B8;
+    color: #F8FAFC;
     font-size: 12px;
 }
 

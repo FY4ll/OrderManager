@@ -4,6 +4,8 @@
 #include <QListWidget>
 #include <QPushButton>
 #include <QPropertyAnimation>
+#include <QEvent>
+#include <QMouseEvent>
 #include "ui/ProductDialog.h"
 #include "ui/MainWindow.h"
 #include "ui/ProductItemWidget.h"
@@ -50,8 +52,12 @@ MainWindow::MainWindow(ProductManager& productManager) : productManager(productM
 
     //creating a list widget to display products
     productList = new QListWidget;
+    productList->setSelectionMode(QAbstractItemView::SingleSelection);
+    productList->viewport()->installEventFilter(this);
     contentLayout->addWidget(productList);
     refreshProductList();
+    connect(productList, &QListWidget::itemSelectionChanged,
+        this, &MainWindow::updateProductSelection);
 
     //Creating the product action buttons
     QHBoxLayout *actionsLayout = new QHBoxLayout();
@@ -120,4 +126,29 @@ void MainWindow::onUpdateProductClicked()
             refreshProductList();
         }
     }
+}
+void MainWindow::updateProductSelection()
+{
+    for(int i = 0; i < productList->count(); i++)
+    {
+        QListWidgetItem* item = productList->item(i);
+        ProductItemWidget* productWidget =
+            static_cast<ProductItemWidget*>(productList->itemWidget(item));
+        if(productWidget != nullptr)
+        {
+            productWidget->setSelected(item->isSelected());
+        }
+    }
+}
+bool MainWindow::eventFilter(QObject* object, QEvent* event)
+{
+    if(object == productList->viewport() && event->type() == QEvent::MouseButtonPress)
+    {
+        QMouseEvent* mouseEvent = static_cast<QMouseEvent*>(event);
+        if(productList->itemAt(mouseEvent->position().toPoint()) == nullptr)
+        {
+            productList->clearSelection();
+        }
+    }
+    return QMainWindow::eventFilter(object, event);
 }
