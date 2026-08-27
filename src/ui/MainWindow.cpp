@@ -7,16 +7,6 @@
 #include "ui/ProductDialog.h"
 
 //Mainwindows.h method that sets the title and size of the window
-#include "ui/MainWindow.h"
-#include <QWidget>
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QLabel>
-#include <QListWidget>
-#include <QPushButton>
-#include "ui/ProductDialog.h"
-
-//Mainwindows.h method that sets the title and size of the window
 MainWindow::MainWindow(ProductManager& productManager) : productManager(productManager)
 {
     //Set the main windows information: title and size 
@@ -30,11 +20,17 @@ MainWindow::MainWindow(ProductManager& productManager) : productManager(productM
 
     //Creating the sidebar
     QWidget *sidebar = new QWidget();
+    sidebar->setObjectName("sidebar");
     QVBoxLayout *sidebarLayout = new QVBoxLayout(sidebar);
 
     QPushButton *productsButton = new QPushButton("Products");
+    productsButton->setObjectName("sidebarButton");
+
     QPushButton *ordersButton = new QPushButton("Orders");
+    ordersButton->setObjectName("sidebarButton");
+
     QPushButton *settingsButton = new QPushButton("Settings");
+    settingsButton->setObjectName("sidebarButton");
 
     sidebarLayout->addWidget(productsButton);
     sidebarLayout->addWidget(ordersButton);
@@ -44,6 +40,7 @@ MainWindow::MainWindow(ProductManager& productManager) : productManager(productM
 
     //Creating the main content area
     QWidget *content = new QWidget();
+    content->setObjectName("content");
     QVBoxLayout *contentLayout = new QVBoxLayout(content);
 
     //creating a first label

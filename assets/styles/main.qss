@@ -1,28 +1,124 @@
-QMainWindow, QDialog {
+/* ===== Main Windows ===== */
+
+QMainWindow, QDialog{
+    background-color: #0F172A;
+}
+
+/* ===== Sidebar ===== */
+
+#sidebar{
+    background-color: #1E293B;
+    min-width: 180px;
+    max-width: 180px;
+    border-radius: 14px;
+    padding: 12px;
+}
+
+#content{
     background-color: #111827;
+    border-radius: 14px;
+    padding: 14px;
 }
 
-QLabel {
-    color: #F9FAFB;
+/* ===== Titles ===== */
+
+QLabel{
+    color: #F8FAFC;
     font-size: 14px;
+    font-weight: 600;
 }
 
-QPushButton {
+/* ===== Sidebar buttons ===== */
+
+#sidebarButton{
+    background: transparent;
+    color: #CBD5E1;
+    border: none;
+    text-align: left;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+#sidebarButton:hover{
+    background-color: #374151;
+    color: white;
+}
+
+/* ===== Action buttons ===== */
+
+QPushButton{
     background-color: #7C3AED;
     color: white;
     border: none;
     border-radius: 8px;
-    padding: 8px 12px;
+    padding: 8px 14px;
+    font-weight: 600;
 }
 
-QPushButton:hover {
+QPushButton:hover{
     background-color: #8B5CF6;
 }
 
-QLineEdit, QDoubleSpinBox, QListWidget {
-    background: #1F2937;
+/* ===== Inputs ===== */
+
+QLineEdit, QDoubleSpinBox{
+    background-color: #1F2937;
     color: white;
     border: 1px solid #374151;
     border-radius: 8px;
     padding: 6px;
+}
+
+QLineEdit:focus, QDoubleSpinBox:focus{
+    border: 1px solid #7C3AED;
+}
+
+/* ===== Product List ===== */
+
+QListWidget{
+    background-color: #111827;
+    border: none;
+    outline: none;
+    color: white;
+}
+
+QListWidget::item{
+    background-color: #1F2937;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 4px 0px;
+}
+
+QListWidget::item:selected{
+    background-color: #7C3AED;
+    color: white;
+}
+/* Sidebar */
+#sidebar{
+    background-color: #1E293B;
+    min-width: 180px;
+    max-width: 180px;
+    border-radius: 14px;
+    padding: 12px;
+}
+
+#content{
+    background-color: #111827;
+    border-radius: 14px;
+    padding: 14px;
+}
+
+#sidebarButton{
+    background: transparent;
+    color: #CBD5E1;
+    border: none;
+    text-align: left;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+#sidebarButton:hover{
+    background-color: #374151;
+    color: white;
 }
