@@ -84,13 +84,35 @@ QListWidget{
 }
 
 QListWidget::item{
-    background-color: #1F2937;
-    border-radius: 8px;
-    padding: 10px;
+    background: transparent;
+    border: none;
     margin: 4px 0px;
 }
 
 QListWidget::item:selected{
-    background-color: #7C3AED;
-    color: white;
+    background: transparent;
+}
+
+/* ===== Product Item ===== */
+
+#productItem {
+    background-color: #1F2937;
+    border-radius: 8px;
+}
+
+#productId {
+    color: #94A3B8;
+    font-size: 12px;
+}
+
+#productName {
+    color: #F8FAFC;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#productPrice {
+    color: #A78BFA;
+    font-size: 14px;
+    font-weight: 600;
 }

@@ -6,7 +6,7 @@
 #include <QPropertyAnimation>
 #include "ui/ProductDialog.h"
 #include "ui/MainWindow.h"
-
+#include "ui/ProductItemWidget.h"
 //Mainwindows.h method that sets the title and size of the window
 MainWindow::MainWindow(ProductManager& productManager) : productManager(productManager)
 {
@@ -86,14 +86,16 @@ void MainWindow::refreshProductList(){
    //Giving accèss to product informations
     const std::vector<Product>& products = productManager.getProducts();
        //loop to get every products in the vector
-    for(std::size_t i = 0; i < products.size(); i++){
-        QListWidgetItem *itemRowQTId = new QListWidgetItem();
-        itemRowQTId->setData(Qt::UserRole, products[i].getId());
-        itemRowQTId->setText(
-            QString::number(products[i].getId()) + " | " +
-            QString::fromStdString(products[i].getName()) + " | " +
-            QString::number(products[i].getPrice()));
-        productList->addItem(itemRowQTId);
+    for(std::size_t i = 0; i < products.size(); i++)
+    {
+        QListWidgetItem* item = new QListWidgetItem();
+        item->setData(Qt::UserRole, products[i].getId());
+        ProductItemWidget* productWidget =
+            new ProductItemWidget(products[i]);
+
+        item->setSizeHint(productWidget->sizeHint());
+        productList->addItem(item);
+        productList->setItemWidget(item, productWidget);
     }
 };
 void MainWindow::onDeleteProductClicked(){
