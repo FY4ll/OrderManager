@@ -93,7 +93,7 @@ void MainWindow::refreshProductList(){
         ProductItemWidget* productWidget =
             new ProductItemWidget(products[i]);
 
-        item->setSizeHint(productWidget->sizeHint());
+        item->setSizeHint(QSize(0, 55));
         productList->addItem(item);
         productList->setItemWidget(item, productWidget);
     }
