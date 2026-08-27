@@ -6,6 +6,7 @@
 #include <QPropertyAnimation>
 #include "ui/ProductDialog.h"
 #include "ui/MainWindow.h"
+
 //Mainwindows.h method that sets the title and size of the window
 MainWindow::MainWindow(ProductManager& productManager) : productManager(productManager)
 {
