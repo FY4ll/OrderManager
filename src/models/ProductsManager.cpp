@@ -1,7 +1,9 @@
 #include "models/ProductsManager.h"
 
 ProductManager::ProductManager(){
-    products = jsonStorage.load("data/products.json");
+    JsonStorage::LoadResult result = jsonStorage.load("data/products.json");
+    products = result.products;
+    nextID = result.nextID;
 }
 void ProductManager::addProduct(const Product& product)
 {
@@ -18,7 +20,7 @@ void ProductManager::createProduct(const std::string& name, double price)
     Product newProduct(nextID, name, price);
     addProduct(newProduct);
     nextID += 1;
-    jsonStorage.save(products, "data/products.json");
+    jsonStorage.save(products, nextID, "data/products.json");
 }
 void ProductManager::removeProduct(int id)
 {
