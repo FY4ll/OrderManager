@@ -43,6 +43,9 @@ void ProductDialog::onAddProductClicked()
     if (product != nullptr){
         QString name = nameInput->text();
         double price = priceInput->value();
+        if(name.trimmed().isEmpty()){
+            return;
+        };
         std::string productName = name.toStdString();
         product->setName(productName);
         product->setPrice(price);
