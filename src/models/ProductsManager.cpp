@@ -15,6 +15,7 @@ void ProductManager::createProduct(const std::string& name, double price)
     Product newProduct(nextID, name, price);
     addProduct(newProduct);
     nextID += 1;
+    jsonStorage.save(products, "data/products.json");
 }
 void ProductManager::removeProduct(int id)
 {

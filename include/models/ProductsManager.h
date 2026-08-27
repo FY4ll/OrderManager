@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "models/Products.h"
+#include "storage/JsonStorage.h"
 
 class ProductManager{
     public:
@@ -14,4 +15,5 @@ class ProductManager{
     private:
         std::vector<Product> products;
         int nextID = 1;
+        JsonStorage jsonStorage; 
 };
