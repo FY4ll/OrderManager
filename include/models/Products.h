@@ -1,4 +1,4 @@
-#pragma once //the file can't be loaded twice
+#pragma once 
 #include <string>
 
 class Product
@@ -11,7 +11,7 @@ class Product
         Product(int id, const std::string& name, double price); //constructor that initializes the product's id, name, and price
         //Getter
         int getId() const; //getter for the product's id
-        std::string getName() const; //getter for the product's name
+        const std::string getName() const; //getter for the product's name
         double getPrice() const; //getter for the product's price   
         
         //Setter

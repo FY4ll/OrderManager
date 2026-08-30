@@ -1,20 +1,20 @@
-#pragma once //the file can't be loaded twice
-#include <QMainWindow> //include the QMainWindow class from the Qt framework
-#include <QListWidget> //include the QListWidget class from QT FW
+#pragma once
+#include <QMainWindow>
+#include <QListWidget>
 #include "models/ProductsManager.h"
 
-class MainWindow : public QMainWindow
-{
+class MainWindow : public QMainWindow{
     public:
         MainWindow(ProductManager& productManager);
-        void onNewProductClicked();
     private:
         ProductManager& productManager;
+        QListWidget* productList;
         void refreshProductList();
-        QListWidget *productList;
-        void onDeleteProductClicked(); 
+        void onNewProductClicked();
+        void onDeleteProductClicked();
         void onUpdateProductClicked();
         void updateProductSelection();
     protected:
         bool eventFilter(QObject* object, QEvent* event) override;
+
 };

@@ -1,27 +1,20 @@
 #include "models/Products.h"
 
 Product::Product(int id, const std::string& name, double price)
-{
-    this->id = id;
-    this->name = name;
-    this->price = price;
-}
+: id(id), name(name), price(price){}
 //NOTE: const methods can't change object value!
-int Product::getId()const
-{
-    return this->id; 
+int Product::getId() const{
+    return id;
 }
-std::string Product::getName() const
-{
-    return this->name;
+const std::string Product::getName() const{
+    return name;
 }
 double Product::getPrice() const{
-    return this->price;
+    return price;
 }
 void Product::setPrice(double price){
     this->price = price;
 }
-void Product::setName(const std::string& name)
-{
+void Product::setName(const std::string& name){
     this->name = name;
 }

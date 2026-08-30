@@ -1,12 +1,10 @@
-#include "ui/ProductItemWidget.h"
-#include "models/Products.h"
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QStyle>
+#include "ui/ProductItemWidget.h"
+#include "models/Products.h"
 
-ProductItemWidget::ProductItemWidget(const Product& product, QWidget* parent)
-    : QWidget(parent)
-{
+ProductItemWidget::ProductItemWidget(const Product& product, QWidget* parent): QWidget(parent){
     setObjectName("productItem");
     setMinimumHeight(50);
     QHBoxLayout* layout = new QHBoxLayout(this);
@@ -21,9 +19,7 @@ ProductItemWidget::ProductItemWidget(const Product& product, QWidget* parent)
     layout->addStretch();
     layout->addWidget(priceLabel);
 }
-
-void ProductItemWidget::setSelected(bool selected)
-{
+void ProductItemWidget::setSelected(bool selected){
     setProperty("selected", selected);
     style()->unpolish(this);
     style()->polish(this);
