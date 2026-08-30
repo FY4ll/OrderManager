@@ -122,8 +122,10 @@ void MainWindow::onUpdateProductClicked()
         if (product != nullptr)
         {
             ProductDialog dialog(productManager, product);
-            dialog.exec();
-            refreshProductList();
+            if(dialog.exec() == QDialog::Accepted){
+                productManager.save();
+                refreshProductList();
+            }
         }
     }
 }

@@ -28,6 +28,7 @@ void ProductManager::removeProduct(int id)
         if (products[index].getId() == id)
         {
            products.erase(products.begin() + index); 
+           save();
            return;
         }
     };
@@ -40,4 +41,7 @@ Product* ProductManager::getProductById(int id){
         }
     }
     return nullptr;
+}
+void ProductManager::save(){
+    jsonStorage.save(products, nextID, "data/products.json");
 }

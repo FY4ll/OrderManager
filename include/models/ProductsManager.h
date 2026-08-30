@@ -9,6 +9,7 @@ class ProductManager{
         void createProduct(const std::string& name, double price);
         //setter
         void addProduct(const Product& product);
+        void save();
         // getter
         const std::vector<Product>& getProducts() const;
         void removeProduct(int id);
