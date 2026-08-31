@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-find_package(Qt6 REQUIRED COMPONENTS Widgets)
+find_package(Qt6 REQUIRED COMPONENTS Widgets Sql)
 
 qt_standard_project_setup()
 
@@ -18,8 +18,9 @@ qt_add_executable(OrderManager
     src/ui/ProductDialog.cpp
     src/ui/ProductItemWidget.cpp
     src/storage/JsonStorage.cpp
+    src/database/Database.cpp
 )
 target_include_directories(OrderManager PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
-target_link_libraries(OrderManager PRIVATE Qt6::Widgets)
+target_link_libraries(OrderManager PRIVATE Qt6::Widgets Qt6::Sql)
