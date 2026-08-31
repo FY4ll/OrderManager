@@ -1,123 +1,370 @@
-/* ===== Main Windows ===== */
-
-QMainWindow, QDialog{
-    background-color: #0F172A;
+QMainWindow,QDialog{
+    background-color:#F4F6F8;
+    color:#263238;
 }
-
-/* ===== Sidebar ===== */
-
+QWidget{
+    font-family:"Inter","Segoe UI",sans-serif;
+    color:#263238;
+}
+#centralWidget{
+    background-color:#F4F6F8;
+}
 #sidebar{
-    background-color: #1E293B;
-    min-width: 180px;
-    max-width: 180px;
-    border-radius: 14px;
-    padding: 12px;
+    background-color:#FFFFFF;
+    border-right:1px solid #E2E6EB;
 }
-
-#content{
-    background-color: #111827;
-    border-radius: 14px;
-    padding: 14px;
+#logo{
+    color:#263238;
+    font-size:23px;
+    font-weight:800;
+    letter-spacing:2px;
 }
-
-/* ===== Titles ===== */
-
-QLabel{
-    color: #F8FAFC;
-    font-size: 14px;
-    font-weight: 600;
+#logoSubtitle{
+    color:#3B6EA8;
+    font-size:23px;
+    font-weight:800;
+    letter-spacing:2px;
 }
-
-/* ===== Sidebar buttons ===== */
-
+#logoVersion{
+    color:#9AA4AA;
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:1.2px;
+}
+#navigationLabel{
+    color:#98A3AA;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:1.5px;
+    padding-left:8px;
+}
 #sidebarButton{
-    background: transparent;
-    color: #CBD5E1;
-    border: none;
-    text-align: left;
-    padding: 10px 12px;
-    border-radius: 8px;
-    font-weight: 500;
+    background-color:transparent;
+    color:#687680;
+    border:none;
+    border-radius:8px;
+    text-align:left;
+    padding:11px 13px;
+    min-height:22px;
+    font-size:12px;
+    font-weight:600;
 }
-
 #sidebarButton:hover{
-    background-color: #374151;
-    color: white;
+    background-color:#F1F4F7;
+    color:#34444D;
 }
-
-/* ===== Action buttons ===== */
-
+#sidebarButton:checked{
+    background-color:#EAF1F9;
+    color:#315D91;
+}
+#sidebarButton:pressed{
+    background-color:#DFEAF5;
+}
+#activeIndicator{
+    background-color:#3B6EA8;
+    border-radius:2px;
+}
+#statusContainer{
+    background-color:#F7F9FA;
+    border:1px solid #E6EAED;
+    border-radius:8px;
+}
+#statusDot{
+    color:#3F8F68;
+    font-size:8px;
+}
+#systemStatus{
+    color:#7B878E;
+    font-size:10px;
+    font-weight:600;
+}
+#mainContent{
+    background-color:#F4F6F8;
+}
+#pageTitle{
+    color:#263238;
+    font-size:27px;
+    font-weight:750;
+}
+#pageSubtitle{
+    color:#7B878E;
+    font-size:11px;
+    font-weight:500;
+}
+#globalSearch{
+    background-color:#FFFFFF;
+    border:1px solid #DDE3E8;
+    border-radius:9px;
+    color:#263238;
+    padding:10px 14px;
+    font-size:11px;
+    selection-background-color:#3B6EA8;
+}
+#globalSearch:hover{
+    border:1px solid #C8D1D8;
+}
+#globalSearch:focus{
+    border:1px solid #3B6EA8;
+}
+#dashboardWelcome{
+    color:#263238;
+    font-size:17px;
+    font-weight:700;
+}
+#dashboardDescription{
+    color:#7B878E;
+    font-size:11px;
+}
+#statCard{
+    background-color:#FFFFFF;
+    border:1px solid #E2E6EB;
+    border-radius:12px;
+}
+#statCard:hover{
+    background-color:#FFFFFF;
+    border:1px solid #D3DAE0;
+}
+#statTitle{
+    color:#89959C;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:1.2px;
+}
+#statValue{
+    color:#263238;
+    font-size:28px;
+    font-weight:800;
+}
+#statSubtitle{
+    color:#9AA4AA;
+    font-size:10px;
+}
+#activityCard{
+    background-color:#FFFFFF;
+    border:1px solid #E2E6EB;
+    border-radius:12px;
+}
+#sectionTitle{
+    color:#34444D;
+    font-size:14px;
+    font-weight:700;
+}
+#sectionDescription{
+    color:#89959C;
+    font-size:10px;
+}
+#liveBadge{
+    background-color:#EDF7F1;
+    color:#3F8F68;
+    border:1px solid #D5EBDD;
+    border-radius:5px;
+    padding:4px 7px;
+    font-size:8px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+#separator{
+    background-color:#E7EBEE;
+    max-height:1px;
+}
+#emptyState{
+    color:#A0A9AE;
+    font-size:11px;
+}
+#productsToolbar{
+    background-color:transparent;
+}
+#productCount{
+    color:#263238;
+    font-size:15px;
+    font-weight:750;
+}
+#productCountSubtitle{
+    color:#89959C;
+    font-size:10px;
+}
+#productListContainer{
+    background-color:#FFFFFF;
+    border:1px solid #E2E6EB;
+    border-radius:12px;
+}
+#productTableHeader{
+    background-color:#F8FAFB;
+    border-bottom:1px solid #E6EAED;
+    border-radius:8px;
+}
+#tableHeaderLabel{
+    color:#89959C;
+    font-size:8px;
+    font-weight:800;
+    letter-spacing:1.3px;
+}
+#productList{
+    background-color:transparent;
+    border:none;
+    outline:none;
+    padding:4px;
+    color:#263238;
+}
+#productList::item{
+    background-color:transparent;
+    border:none;
+    margin:1px 0px;
+    padding:0px;
+}
+#productList::item:selected{
+    background-color:transparent;
+}
+#productItem{
+    background-color:#FFFFFF;
+    border:1px solid transparent;
+    border-radius:9px;
+}
+#productItem:hover{
+    background-color:#F7F9FA;
+    border:1px solid #E0E5E9;
+}
+#productItem[selected="true"]{
+    background-color:#EAF1F9;
+    border:1px solid #B7CBE0;
+}
+#productId{
+    color:#89959C;
+    font-size:10px;
+    font-weight:700;
+}
+#productName{
+    color:#34444D;
+    font-size:12px;
+    font-weight:650;
+}
+#productPrice{
+    color:#315D91;
+    font-size:12px;
+    font-weight:750;
+}
 QPushButton{
-    background-color: #7C3AED;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 8px 14px;
-    font-weight: 600;
+    border-radius:8px;
+    padding:9px 14px;
+    font-size:11px;
+    font-weight:700;
 }
-
-QPushButton:hover{
-    background-color: #8B5CF6;
+#primaryButton{
+    background-color:#3B6EA8;
+    color:#FFFFFF;
+    border:1px solid #3B6EA8;
 }
-
-/* ===== Inputs ===== */
-
-QLineEdit, QDoubleSpinBox{
-    background-color: #1F2937;
-    color: white;
-    border: 1px solid #374151;
-    border-radius: 8px;
-    padding: 6px;
+#primaryButton:hover{
+    background-color:#315D91;
+    border:1px solid #315D91;
 }
-
-QLineEdit:focus, QDoubleSpinBox:focus{
-    border: 1px solid #7C3AED;
+#primaryButton:pressed{
+    background-color:#294F7B;
 }
-
-/* ===== Product List ===== */
-
-QListWidget{
-    background-color: #111827;
-    border: none;
-    outline: none;
-    color: white;
+#secondaryButton{
+    background-color:#FFFFFF;
+    color:#687680;
+    border:1px solid #DDE3E8;
 }
-
-QListWidget::item{
-    background: transparent;
-    border: none;
-    margin: 4px 0px;
+#secondaryButton:hover{
+    background-color:#F7F9FA;
+    color:#34444D;
+    border:1px solid #C8D1D8;
 }
-
-/* ===== Product Item ===== */
-
-#productItem {
-    background-color: #1F2937;
-    border-radius: 8px;
+#secondaryButton:pressed{
+    background-color:#EEF2F5;
 }
-
-#productItem:hover {
-    background-color: #374151;
+#dangerButton{
+    background-color:#FFFFFF;
+    color:#B85C5C;
+    border:1px solid #E7D2D2;
 }
-
-#productItem[selected="true"] {
-    background-color: #7C3AED;
-    border: 1px solid #A78BFA;
+#dangerButton:hover{
+    background-color:#FCF5F5;
+    color:#A64E4E;
+    border:1px solid #DDBABA;
 }
-
-#productId {
-    color: #F8FAFC;
-    font-size: 12px;
+#dangerButton:pressed{
+    background-color:#F8EAEA;
 }
-
-#productName {
-    color: #F8FAFC;
-    font-size: 14px;
-    font-weight: 600;
+QLineEdit,QDoubleSpinBox{
+    background-color:#FFFFFF;
+    color:#263238;
+    border:1px solid #DDE3E8;
+    border-radius:8px;
+    padding:9px 11px;
+    selection-background-color:#3B6EA8;
 }
-
-#productPrice {
-    color: #A78BFA;
-    font-size: 14px;
-    font-weight: 600;
+QLineEdit:hover,QDoubleSpinBox:hover{
+    border:1px solid #C8D1D8;
+}
+QLineEdit:focus,QDoubleSpinBox:focus{
+    border:1px solid #3B6EA8;
+}
+#wipPage{
+    background-color:#F4F6F8;
+}
+#wipIcon{
+    background-color:#EAF1F9;
+    color:#315D91;
+    border:1px solid #C8D9E9;
+    border-radius:12px;
+    padding:18px 22px;
+    font-size:12px;
+    font-weight:850;
+    letter-spacing:1.5px;
+}
+#wipTitle{
+    color:#263238;
+    font-size:24px;
+    font-weight:750;
+}
+#wipStatus{
+    color:#3B6EA8;
+    font-size:9px;
+    font-weight:850;
+    letter-spacing:1.5px;
+}
+#wipDescription{
+    color:#7B878E;
+    font-size:11px;
+}
+QMessageBox{
+    background-color:#FFFFFF;
+}
+QMessageBox QLabel{
+    color:#34444D;
+    font-size:12px;
+}
+QMessageBox QPushButton{
+    min-width:80px;
+}
+QScrollBar:vertical{
+    background-color:transparent;
+    width:7px;
+    margin:5px 1px 5px 0px;
+}
+QScrollBar::handle:vertical{
+    background-color:#C9D1D7;
+    border-radius:3px;
+    min-height:30px;
+}
+QScrollBar::handle:vertical:hover{
+    background-color:#AEB9C1;
+}
+QScrollBar::add-line:vertical,QScrollBar::sub-line:vertical{
+    height:0px;
+}
+QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical{
+    background-color:transparent;
+}
+QDoubleSpinBox::up-button,QDoubleSpinBox::down-button{
+    width:0px;
+    border:none;
+    background:transparent;
+}
+QDoubleSpinBox::up-arrow,QDoubleSpinBox::down-arrow{
+    width:0px;
+    height:0px;
+    image:none;
 }

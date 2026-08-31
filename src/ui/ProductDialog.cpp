@@ -23,6 +23,8 @@ ProductDialog::ProductDialog(ProductManager& productManager, Product* product): 
     priceInput = new QDoubleSpinBox();
     priceInput->setDecimals(2);
     priceInput->setMinimum(0.00);
+    priceInput->setMaximum(100000000.00);
+    priceInput->setSingleStep(0.50);
     priceInput->setSuffix(" CHF");
     layout->addWidget(priceInput);
     //Load product information when editing
