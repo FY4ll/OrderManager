@@ -8,7 +8,8 @@
 #include "ui/MainWindow.h"
 #include "database/Database.h"
 
-int main(int argc, char *argv[]){   
+int main(int argc, char *argv[]){  
+    std::cout << "MAIN STARTED" << std::endl; 
     QApplication app(argc, argv);
     Database database;
     if(!database.initialize()){

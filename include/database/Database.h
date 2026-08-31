@@ -6,5 +6,6 @@ public:
     bool initialize();
     QSqlDatabase& getDatabase();
 private:
+    bool createTables();
     QSqlDatabase database;
 };
