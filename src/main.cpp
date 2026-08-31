@@ -7,22 +7,21 @@
 #include "models/ProductsManager.h"
 #include "ui/MainWindow.h"
 #include "database/Database.h"
-
-int main(int argc, char *argv[]){  
-    std::cout << "MAIN STARTED" << std::endl; 
-    QApplication app(argc, argv);
+#include "repositories/ProductRepository.h"
+int main(int argc,char **argv){
+    QApplication app(argc,argv);
     Database database;
     if(!database.initialize()){
         return 1;
     }
+    ProductRepository productRepository(database);
+    ProductManager manager(productRepository);
     QFile file("assets/styles/main.qss");
-    if (file.open(QFile::ReadOnly | QFile::Text))
-    {
+    if(file.open(QFile::ReadOnly | QFile::Text)){
         QTextStream stream(&file);
         app.setStyleSheet(stream.readAll());
     }
-    ProductManager manager;
-    MainWindow window(manager); 
+    MainWindow window(manager);
     window.show();
     return app.exec();
 }
