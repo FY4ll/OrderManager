@@ -551,7 +551,6 @@ void MainWindow::onUpdateProductClicked(){
     }
     ProductDialog dialog(productManager, product);
     if(dialog.exec() == QDialog::Accepted){
-        productManager.save();
         refreshProductList();
     }
 }

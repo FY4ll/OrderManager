@@ -4,51 +4,43 @@
 #include <QDoubleSpinBox>
 #include <QPushButton>
 #include "ui/ProductDialog.h"
-
-ProductDialog::ProductDialog(ProductManager& productManager, Product* product): productManager(productManager), product(product){
-    //Window size
-    setWindowTitle("Add New Product");
-    resize(400, 300);
-    //Window layout
+ProductDialog::ProductDialog(ProductManager& productManager,Product* product): productManager(productManager),product(product){
+    setWindowTitle(product == nullptr ? "New Product" : "Update Product");
+    resize(400,250);
     QVBoxLayout* layout = new QVBoxLayout(this);
-    QLabel* nameLabel = new QLabel("Name:");
+    QLabel* nameLabel = new QLabel("Name");
     layout->addWidget(nameLabel);
-    //Name input
     nameInput = new QLineEdit();
-    nameInput->setPlaceholderText("Enter product Name");
+    nameInput->setPlaceholderText("Enter product name");
     layout->addWidget(nameInput);
-    //Price input
-    QLabel* priceLabel = new QLabel("Price:");
+    QLabel* priceLabel = new QLabel("Price");
     layout->addWidget(priceLabel);
     priceInput = new QDoubleSpinBox();
     priceInput->setDecimals(2);
-    priceInput->setMinimum(0.00);
-    priceInput->setMaximum(100000000.00);
-    priceInput->setSingleStep(0.50);
+    priceInput->setMaximum(999999.99);
+    priceInput->setButtonSymbols(QAbstractSpinBox::NoButtons);
     priceInput->setSuffix(" CHF");
     layout->addWidget(priceInput);
-    //Load product information when editing
     if(product != nullptr){
         nameInput->setText(QString::fromStdString(product->getName()));
         priceInput->setValue(product->getPrice());
     }
-    addButton = new QPushButton("Add Product");
+    addButton = new QPushButton(product == nullptr ? "Create Product" : "Save Changes");
     layout->addWidget(addButton);
     connect(addButton,&QPushButton::clicked,this,&ProductDialog::onAddProductClicked);
 }
 void ProductDialog::onAddProductClicked(){
-    QString name = nameInput->text();
-    double price = priceInput->value();
-    if(name.trimmed().isEmpty()){
+    QString name = nameInput->text().trimmed();
+    if(name.isEmpty()){
         return;
     }
-    std::string productName = name.toStdString();
-    if(product != nullptr){
-        product->setName(productName);
-        product->setPrice(price);
+    double price = priceInput->value();
+    if(product == nullptr){
+        productManager.createProduct(name.toStdString(),price);
     }
     else{
-        productManager.createProduct(productName, price);
+        Product updated(product->getId(),name.toStdString(),price);
+        productManager.updateProduct(updated);
     }
     accept();
 }
