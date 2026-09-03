@@ -1,0 +1,63 @@
+name: Build Windows installer
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Release tag
+        required: true
+        default: v1.0.0
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build-installer:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Install Qt 6
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: "6.8.3"
+          arch: win64_mingw
+          tools: tools_mingw1310
+          dir: ${{ github.workspace }}\Qt
+          cache: true
+
+      - name: Install NSIS
+        shell: powershell
+        run: choco install nsis --yes --no-progress
+
+      - name: Locate Qt kit
+        shell: powershell
+        run: |
+          $qtKit = Get-ChildItem "$env:GITHUB_WORKSPACE\Qt" -Directory -Recurse |
+            Where-Object { $_.Name -eq "mingw_64" } |
+            Select-Object -First 1
+          if (-not $qtKit) { throw "Qt MinGW kit was not found." }
+          "QT_KIT=$($qtKit.FullName)" >> $env:GITHUB_ENV
+
+      - name: Build installer
+        shell: powershell
+        run: .\scripts\build-windows-installer.ps1 -QtPath "$env:QT_KIT"
+
+      - name: Upload installer artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: OrderManager_Installer
+          path: OrderManager_Installer.exe
+          if-no-files-found: error
+
+      - name: Publish GitHub release
+        shell: powershell
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.event.inputs.release_tag || github.ref_name }}
+        run: gh release create "$env:RELEASE_TAG" OrderManager_Installer.exe --title "OrderManager $env:RELEASE_TAG" --generate-notes --target main

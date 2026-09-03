@@ -20,13 +20,9 @@ This produces an `OrderManager-1.0.0-Linux.rpm` package. Fedora users need the Q
 
 ### Windows 11
 
-After installing Qt 6 (MinGW 64-bit), CMake, Ninja and NSIS, run PowerShell from the project directory:
+The Windows installer is built automatically by GitHub Actions. Open the **Actions** tab, select **Build Windows installer**, click **Run workflow**, and enter a release tag such as `v1.0.0`. GitHub publishes `OrderManager_Installer.exe` in **Releases**.
 
-  .\scripts\build-windows-installer.ps1
-
-The script configures and builds the Release version, then creates `OrderManager_Installer.exe`. The installer includes the Qt runtime and SQLite plugin through Qt's deployment support. If Qt is installed in a non-standard location, provide it explicitly:
-
-  .\scripts\build-windows-installer.ps1 -QtPath "C:\Qt\6.8.3\mingw_64"
+Clients only download and run the installer. They do not need Qt, CMake, Ninja, NSIS or a compiler.
 
 ---
 
