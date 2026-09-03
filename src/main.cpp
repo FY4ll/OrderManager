@@ -1,23 +1,25 @@
-#include <QApplication>
-#include <QMainWindow>
-#include <iostream>
-#include <QFile>
-#include <QTextStream>
+#include "database/Database.h"
 #include "models/Products.h"
 #include "models/ProductsManager.h"
-#include "ui/MainWindow.h"
-#include "database/Database.h"
 #include "repositories/ProductRepository.h"
-int main(int argc,char **argv){
-    QApplication app(argc,argv);
+#include "ui/MainWindow.h"
+#include <QApplication>
+#include <QDir>
+#include <QFile>
+#include <QMainWindow>
+#include <QStandardPaths>
+#include <QTextStream>
+#include <iostream>
+int main(int argc, char** argv) {
+    QApplication app(argc, argv);
     Database database;
-    if(!database.initialize()){
+    if (!database.initialize()) {
         return 1;
     }
     ProductRepository productRepository(database);
     ProductManager manager(productRepository);
-    QFile file("assets/styles/main.qss");
-    if(file.open(QFile::ReadOnly | QFile::Text)){
+    QFile file(":/assets/styles/main.qss");
+    if (file.open(QFile::ReadOnly | QFile::Text)) {
         QTextStream stream(&file);
         app.setStyleSheet(stream.readAll());
     }

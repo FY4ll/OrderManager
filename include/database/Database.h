@@ -1,11 +1,12 @@
 #pragma once
 #include <QSqlDatabase>
-class Database{
-public:
+class Database {
+  public:
     Database();
     bool initialize();
     QSqlDatabase& getDatabase();
-private:
+
+  private:
     bool createTables();
     QSqlDatabase database;
 };

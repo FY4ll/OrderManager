@@ -34,3 +34,6 @@
 .vscode/
 build/
 /data/*.json
+_CPack_Packages/
+*.rpm
+*.exe

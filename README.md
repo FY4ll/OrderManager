@@ -6,6 +6,26 @@ The project is built progressively through several functional versions. Each ver
 
 The goal is to build the application step by step, validate each part before moving forward, and keep the architecture maintainable.
 
+## Packaging
+
+The project uses CPack to create native packages:
+
+### Fedora Linux
+
+  cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+  cmake --build build --config Release
+  cpack --config build/CPackConfig.cmake -G RPM
+
+This produces an `OrderManager-1.0.0-Linux.rpm` package. Fedora users need the Qt 6 Widgets, GUI and SQLite runtime packages.
+
+### Windows 11
+
+Configure and build the Release configuration with Qt 6 and CMake, then run:
+
+  cpack --config build/CPackConfig.cmake -G NSIS
+
+The generated NSIS installer includes the Qt runtime and SQLite plugin through Qt's deployment support.
+
 ---
 
 # V0 — Functional Prototype
