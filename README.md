@@ -12,19 +12,21 @@ The project uses CPack to create native packages:
 
 ### Fedora Linux
 
-  cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
-  cmake --build build --config Release
-  cpack --config build/CPackConfig.cmake -G RPM
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build --config Release
+cpack --config build/CPackConfig.cmake -G RPM
 
 This produces an `OrderManager-1.0.0-Linux.rpm` package. Fedora users need the Qt 6 Widgets, GUI and SQLite runtime packages.
 
 ### Windows 11
 
-Configure and build the Release configuration with Qt 6 and CMake, then run:
+After installing Qt 6 (MinGW 64-bit), CMake, Ninja and NSIS, run PowerShell from the project directory:
 
-  cpack --config build/CPackConfig.cmake -G NSIS
+  .\scripts\build-windows-installer.ps1
 
-The generated NSIS installer includes the Qt runtime and SQLite plugin through Qt's deployment support.
+The script configures and builds the Release version, then creates `OrderManager_Installer.exe`. The installer includes the Qt runtime and SQLite plugin through Qt's deployment support. If Qt is installed in a non-standard location, provide it explicitly:
+
+  .\scripts\build-windows-installer.ps1 -QtPath "C:\Qt\6.8.3\mingw_64"
 
 ---
 
